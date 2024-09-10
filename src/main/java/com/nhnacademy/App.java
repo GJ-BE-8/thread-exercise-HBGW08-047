@@ -52,6 +52,7 @@ public class App
             } else break;
         }
 
+
         // threadA, threadB가 종료되면 'Application exit!' message를 출력 합니다.
         log.debug("Application exit!");
 
