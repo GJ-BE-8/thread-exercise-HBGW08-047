@@ -41,19 +41,17 @@ public class CounterHandler implements  Runnable {
             ex) thread:my-thread,count:1 ....
          */
 
-        try {
-            Thread.sleep(1000);
-            count++;
-
-            log.debug("thread : {}, count : {}", Thread.currentThread().getName(), count);
-
-        } catch (InterruptedException e) {
-            log.error("에러 발생", e);
-        }
-
-
-
         do {
+
+            try {
+                Thread.sleep(1000);
+                count++;
+
+                log.debug("thread : {}, count : {}", Thread.currentThread().getName(), count);
+
+            } catch (InterruptedException e) {
+                log.error("에러 발생", e);
+            }
 
         }while (count<countMaxSize);
     }
