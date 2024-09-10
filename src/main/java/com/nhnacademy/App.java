@@ -29,7 +29,6 @@ public class App
         //TODO#6 thread의 name을 my-counter로 설정 합니다.
         thread.setName("mu-counter");
 
-
         //TODO#7 thread를 시작 합니다.
         thread.start();
 
