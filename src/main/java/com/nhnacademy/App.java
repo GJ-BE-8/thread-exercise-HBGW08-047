@@ -48,7 +48,6 @@ public class App
         try {
             Thread.sleep(3000);
             threadA.interrupt();
-
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
