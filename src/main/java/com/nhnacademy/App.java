@@ -56,7 +56,6 @@ public class App
         while (threadA.isAlive() && threadB.isAlive()){
             Thread.yield();
         }
-
         log.debug("System exit!");
     }
 }
