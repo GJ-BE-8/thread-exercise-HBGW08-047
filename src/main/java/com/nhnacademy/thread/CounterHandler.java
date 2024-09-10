@@ -27,7 +27,6 @@ public class CounterHandler implements Runnable  {
             throw new IllegalArgumentException();
         }
 
-
         //TODO#5  countMaxSize, count, monitor 변수를 초기화 합니다.
         this.countMaxSize = countMaxSize;
         this.monitor = monitor;
