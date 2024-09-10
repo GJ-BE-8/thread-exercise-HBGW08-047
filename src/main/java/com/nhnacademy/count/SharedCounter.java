@@ -58,6 +58,8 @@ public class SharedCounter {
             return count;
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        } finally {
+            semaphore.release();
         }
     }
 
@@ -71,6 +73,8 @@ public class SharedCounter {
             return count;
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        } finally {
+            semaphore.release();
         }
     }
 }
