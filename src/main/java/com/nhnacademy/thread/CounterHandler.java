@@ -42,8 +42,12 @@ public class CounterHandler implements Runnable  {
             }
 
         //TODO#2 해당 thread가 isInterrupted() 상태가 false 일 while loop를 실행 할 수 있도록 조건을 추가하세요
-            if ()
-        }while (count<countMaxSize);
+            if (Thread.currentThread().isInterrupted()) {
+                break;
+            }
+            else continue;
+
+        } while (count<countMaxSize);
 
     }
 }

@@ -47,6 +47,7 @@ public class App
         //TODO#1 - main Thread 에서 3초 후  threadA에 interrupt 예외를 발생 시킴 니다.
         try {
             Thread.sleep(3000);
+            threadA.interrupt();
 
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
