@@ -30,7 +30,7 @@ public class CounterHandler implements Runnable  {
         //TODO#5  countMaxSize, count, monitor 변수를 초기화 합니다.
         this.countMaxSize = countMaxSize;
         this.monitor = monitor;
-        this.count = 0;
+        this.count = 0L;
 
     }
 

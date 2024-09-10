@@ -31,7 +31,7 @@ public class App
 
         //TODO#2 counterHandlerA 객체를 생성 합니다. countMaxSize : 10, monitor
         CounterHandler counterHandlerA = null;
-        counterHandlerA = new CounterHandler(10, monitor);
+        counterHandlerA = new CounterHandler(10L, monitor);
 
         //threadA 생성시 counterHandlerA 객체를 paramter로 전달 합니다.
         Thread threadA = new Thread(counterHandlerA);
@@ -47,11 +47,12 @@ public class App
         //TODO#3 - Main Thread에서 2초 후 monitor를 이용하여 대기하고 있는 threadA를 깨움 니다.
         try {
             Thread.sleep(2000);
-            synchronized (monitor) {
-                monitor.notify();
-            }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
+        }
+
+        synchronized (monitor) {
+            monitor.notify();
         }
 
 
