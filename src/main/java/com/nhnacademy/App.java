@@ -24,7 +24,7 @@ public class App
     {
 
         //TODO#1 shardCounter 객체를 0으로 초기화 합니다.
-        SharedCounter sharedCounter = new SharedCounter(0);            //다시
+        SharedCounter sharedCounter = new SharedCounter(0L);
 
         //TODO#2 counterIncreaseHandler 객체를 생성 합니다.
         CounterIncreaseHandler counterIncreaseHandler = new CounterIncreaseHandler(sharedCounter);
@@ -51,13 +51,16 @@ public class App
 
         try {
             Thread.sleep(20000);
+            threadA.interrupt();
+            threadB.interrupt();
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
-
         //TODO#10 main Thread는 threadA와 threadB의 상태가 terminated가 될 때 까지 대기 합니다. 즉 threadA, threadB가 종료될 때 까지 대기(양보) 합니다.
-
+        while (threadA.isAlive() || threadB.isAlive()) {
+            Thread.yield();
+        }
 
         log.debug("System exit!");
     }
