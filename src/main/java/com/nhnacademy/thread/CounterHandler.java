@@ -43,7 +43,7 @@ public class CounterHandler implements  Runnable {
             Thread.sleep(1000);
             count++;
 
-            log.debug("thread : {}, count : {}", .getName(), count);
+            log.debug("thread : {}, count : {}", Thread.currentThread().getName(), count);
 
         } catch (InterruptedException e) {
             log.error("에러 발생", e);
