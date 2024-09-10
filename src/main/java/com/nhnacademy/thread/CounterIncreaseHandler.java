@@ -23,11 +23,10 @@ public class CounterIncreaseHandler implements Runnable {
 
     public CounterIncreaseHandler(SharedCounter sharedCounter) {
         //TODO#2-1 sharedCounter를 초기화 합니다.  sharedCounter가 null 이면 IllegalArgumentException이 발생 합니다.
-        if (Objects.isNull(sharedCounter)) {
-            throw new IllegalArgumentException();
+        if(Objects.isNull(sharedCounter)){
+            throw new IllegalArgumentException(String.format("SharedCount is null"));
         }
         this.sharedCounter = sharedCounter;
-
     }
 
     @Override
@@ -41,10 +40,8 @@ public class CounterIncreaseHandler implements Runnable {
                 log.debug("thread:{}, count:{}", Thread.currentThread().getName(), count);
             } catch (Exception e) {
                 log.debug("{} - interrupt!",Thread.currentThread().getName());
-
                 //TODO#2-4 현제 Thread에 interrupt()를 호출하여 interrput()를 발생 시킵 니다. 즉 현제 Thread의 interrupted 값이 -> true로 변경 됩니다. -> 즉 while 문을 종료하게 됩니다.
                 Thread.currentThread().interrupt();
-
             }
         }
     }
