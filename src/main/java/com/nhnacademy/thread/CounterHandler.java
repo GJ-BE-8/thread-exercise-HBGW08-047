@@ -50,7 +50,6 @@ public class CounterHandler implements Runnable  {
         do {
             try {
                 Thread.sleep(1000);
-                monitor.wait();
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

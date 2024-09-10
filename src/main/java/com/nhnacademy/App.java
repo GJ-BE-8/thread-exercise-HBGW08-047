@@ -57,7 +57,6 @@ public class App
 
         }
 
-
         //Main Thread가 threadA  종료될 때 까지 대기 합니다. Thread.yield를 사용 합니다.
         do {
             Thread.yield();
