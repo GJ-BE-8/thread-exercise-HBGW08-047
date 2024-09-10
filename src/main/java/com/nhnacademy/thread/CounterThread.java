@@ -25,12 +25,14 @@ public class CounterThread extends  Thread{
 
     public CounterThread(String name, long countMaxSize) {
         //TODO#2 name <-- null 이거나 공백 문자열이면 IllegalArgumentException이 발생 합니다.
-        if (name = null || name.isEmpty()) {
+        if (name.isBlank()) {
             throw new IllegalArgumentException();
         }
 
         //TODO#3 countMaxSize <=0 이면 IllegalArgumentException이 발생 합니다.
-
+        if (countMaxSize <= 0) {
+            throw new IllegalArgumentException();
+        }
 
         this.setName(name);
         this.countMaxSize = countMaxSize;
@@ -49,6 +51,14 @@ public class CounterThread extends  Thread{
          */
 
         do {
+            try {
+                Thread.sleep(1000);
+                count++;
+                log.debug("thread : {}, count : {}", this.getName(), count);
+
+            } catch (InterruptedException e) {
+                log.error("스레드가 중단되었습니다: {}", Thread.currentThread().getName(), e);
+            }
 
         }while (count<countMaxSize);
     }
