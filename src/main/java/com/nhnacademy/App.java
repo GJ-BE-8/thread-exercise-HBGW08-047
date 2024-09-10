@@ -23,7 +23,7 @@ public class App
 {
 
     //TODO#1 monitor로 사용한 객체를 생성 합니다.
-    public static final Object monitor = new Object();
+    public static Object monitor = new Object();
 
 
     public static void main( String[] args )
@@ -52,7 +52,9 @@ public class App
         }
 
         synchronized (monitor) {
+            log.debug("threadA 깨우기");
             monitor.notify();
+
         }
 
 
