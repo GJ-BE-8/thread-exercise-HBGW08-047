@@ -40,18 +40,24 @@ public class CounterHandler implements Runnable  {
         //monitor는 여러 Thread가 동시에 접근할 수 없도록  접근을 제어해야 합니다.
 
         synchronized (monitor) {
-            do {
-                try {
-                    Thread.sleep(1000);
-                    monitor.wait();
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                count++;
-                log.debug("thread:{},state:{},count:{}",Thread.currentThread().getName(),Thread.currentThread().getState(),count);
-
-            }while (count<countMaxSize);
+            try {
+                monitor.wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException();
+            }
         }
+
+        do {
+            try {
+                Thread.sleep(1000);
+                monitor.wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            count++;
+            log.debug("thread:{},state:{},count:{}", Thread.currentThread().getName(), Thread.currentThread().getState(), count);
+
+        } while (count < countMaxSize);
     }
 }
 
