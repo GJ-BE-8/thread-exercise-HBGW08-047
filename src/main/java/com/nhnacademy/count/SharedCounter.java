@@ -39,6 +39,7 @@ public class SharedCounter {
         /*TODO#1-2 count 를 반환 합니다. mutex.lock()를 호출하여 다른 thread가 접근할 수 없도록 lock을 걸어 줍니다.
             쓰레드가 작업이 완료되면 mutex.unlock()를 호출하여 잠금을 해제 합니다. 뮤텍스는 lock을 건 쓰레드만 lock을 해제할 수 있습니다.
          */
+
         try {
             mutex.lock();
             return count;
