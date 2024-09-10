@@ -47,12 +47,13 @@ public class App
         //TODO#3 - Main Thread에서 2초 후 monitor를 이용하여 대기하고 있는 threadA를 깨움 니다.
         try {
             Thread.sleep(2000);
+            synchronized (monitor) {
+                monitor.notify();
+            }
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        synchronized (monitor) {
-            monitor.notify();
-        }
+
 
         //Main Thread가 threadA  종료될 때 까지 대기 합니다. Thread.yield를 사용 합니다.
         do {
